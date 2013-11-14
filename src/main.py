@@ -18,8 +18,6 @@ SOS = 'ffda'
 EOI = 'ffd9'
 JFIF = '4a46494600'
 
-images_found = 0
-
 def main():
 
 	images_found = 0
@@ -121,6 +119,8 @@ def main():
 		else:
 			break
 
+	return images_found
+
 # Attempt to write the image
 def try_image(hex_content):
 
@@ -140,7 +140,6 @@ def try_image(hex_content):
 		print("Invalid [imghdr]")
 	else:
 		print("**** Image Saved ****")
-		images_found += 1
 		return True
 
 def hex_to_int(h):
@@ -159,5 +158,5 @@ if __name__ == '__main__':
 	print("Buffer size: {0}".format(BUFFER_SIZE))
 	print("\n--------------------------------------")
 	s = time.clock()
-	main()
+	images_found = main()
 	print("Found {0} JPEG images in {1:.4f} seconds".format(images_found, time.clock() - s))
