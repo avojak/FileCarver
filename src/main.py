@@ -146,11 +146,6 @@ def hex_to_int(h):
 	return int(h, 16)
 
 if __name__ == '__main__':
-	# try:
-	# 	os.stat(dir)
-	# except:
-	# 	os.mkdir(dir)
-
 	print("\n--------------------------------------")
 	print("File Carver preset with following settings:")
 	print("Disk image location: {0}".format(PATH))
