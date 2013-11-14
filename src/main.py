@@ -11,7 +11,7 @@ import time
 
 BUFFER_SIZE = 10485760.0 # Bytes (10MB)
 MAX_FILE_SIZE = 1048576.0 # Bytes (1MB)
-PATH = '/Users/andrewvojak/Code/file_carver/test_disk_images/larryFlashDrive.dd'
+PATH = '/Users/andrewvojak/Desktop/test_disk_images/larryFlashDrive.dd'
 
 SOI = 'ffd8'
 SOS = 'ffda'
@@ -127,7 +127,7 @@ def try_image(hex_content):
 	filename = None
 	try:
 		bytes = binascii.unhexlify(hex_content)
-		filename = '../output/' + hashlib.md5(bytes).hexdigest() + '.jpg'
+		filename = '/Users/andrewvojak/Desktop/output/' + hashlib.md5(bytes).hexdigest() + '.jpg'
 		f_out = open(filename, 'wb')
 		f_out.write(bytes)
 		f_out.close()
@@ -147,6 +147,11 @@ def hex_to_int(h):
 	return int(h, 16)
 
 if __name__ == '__main__':
+	# try:
+	# 	os.stat(dir)
+	# except:
+	# 	os.mkdir(dir)
+
 	print("\n--------------------------------------")
 	print("File Carver preset with following settings:")
 	print("Disk image location: {0}".format(PATH))
